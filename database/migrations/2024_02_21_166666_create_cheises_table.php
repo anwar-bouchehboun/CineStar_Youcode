@@ -13,7 +13,7 @@ return new class extends Migration {
         //chaes
         Schema::create('cheises', function (Blueprint $table) {
             $table->id();
-            $table->bool('is_booked');
+            $table->boolean('is_booked');
             $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignid('reservation_id')->constrained('reservations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
