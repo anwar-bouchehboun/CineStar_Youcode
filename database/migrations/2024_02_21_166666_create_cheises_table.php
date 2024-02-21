@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        //ch
+        //cheise
         Schema::create('cheises', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_booked');
