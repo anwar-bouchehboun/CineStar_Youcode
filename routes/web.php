@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +33,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// google
+Route::get('/auth/google/redirect', [LoginController::class, 'redirect']);
+Route::get('/auth/google/callback', [LoginController::class, 'callback']);
+// facebook
+// Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+// Route::get('/login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('github')->user();
+
+//     // $user->token
+// });
+
+// Route::get('/login/google', 'LoginController@redirectToGoogle')->name('login.google');
+// Route::get('/login/google/callback', 'LoginController@handleGoogleCallback');
+
+
+
+require __DIR__ . '/auth.php';
