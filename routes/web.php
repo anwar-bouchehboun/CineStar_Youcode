@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+//Films page  route 
+Route::get('/films', [FilmController::class, 'index'])->name('films.index');
+
+require __DIR__ . '/auth.php';

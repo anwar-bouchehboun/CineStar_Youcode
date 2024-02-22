@@ -12,7 +12,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        return view('films.index');
     }
 
     /**
