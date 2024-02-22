@@ -134,63 +134,22 @@
                     <span class="font-semibold text-gray-700 text-base dark:text-white">Top Stars</span>
                 </div>
 
+                <!--Stars-->
                 <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
-                    <!--Star 1-->
+                    @foreach ($actors as $actor)
                     <div class="relative rounded-xl overflow-hidden">
-                        <img src="https://www.jolie.de/sites/default/files/styles/image_gallery360w/public/2020-02/leonardo-dicaprio-oscars.jpg?h=64dbc2fc&itok=EH0B3oo4"
+                        <img src="{{$actor->ActorImg}}"
                             class="object-cover h-full w-full -z-10" alt="">
                         <div
                             class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
                             <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">Leonardo DiCaprio</span>
+                                <span class="capitalize text-white font-medium drop-shadow-md">{{$actor->ActorName}}</span>
                                 <span class="text-gray-100 text-xs">+12 Movies</span>
 
                             </div>
                         </div>
                     </div>
-
-                    <!--Star 2-->
-                    <div class="relative rounded-xl overflow-hidden ">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/WP_-_random_-5_%2814094372762%29.jpg/319px-WP_-_random_-5_%2814094372762%29.jpg"
-                            class="object-cover w-full h-full -z-10" alt="">
-                        <div
-                            class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                            <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">Joseph
-                                    Gordon-Levitt</span>
-                                <span class="text-gray-300 text-xs">+24 Movies</span>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Star 3-->
-                    <div class="relative rounded-xl overflow-hidden ">
-                        <img src="https://img.zeit.de/kultur/film/2020-12/elliot-page-tranmann/wide__450x253__mobile__scale_1"
-                            class="object-cover h-full w-full -z-10" alt="">
-                        <div
-                            class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                            <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">Elliot Page</span>
-                                <span class="text-gray-300 text-xs">+10 Movies</span>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Star 4-->
-                    <div class="relative rounded-xl overflow-hidden ">
-                        <img src="https://de.web.img3.acsta.net/c_310_420/pictures/16/01/19/11/06/274206.jpg"
-                            class="object-cover h-full w-full -z-10" alt="">
-                        <div
-                            class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                            <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">Tom Hardy</span>
-                                <span class="text-gray-300 text-xs">+27 Movies</span>
-
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
 
