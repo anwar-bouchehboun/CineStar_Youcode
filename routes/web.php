@@ -1,10 +1,11 @@
 <?php
 
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth','role:member'])->group(function () {
+    Route::get('/films', [FilmController::class, 'index'])->name('films.index');
+});
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/dashboard', function () {

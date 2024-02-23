@@ -28,7 +28,7 @@ class LoginController extends Controller
             // if the user exits, use that user and login
 
             $this->registerOrLoginUser($user);
-            return redirect(RouteServiceProvider::HOME);
+            return redirect(RouteServiceProvider::FILM);
 
             //catch exceptions
         } catch (Exception $e) {
@@ -54,14 +54,22 @@ class LoginController extends Controller
     {
         //test
         $user = User::where('email', '=', $data["email"])->first();
+
         if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->avatar = $data->avatar;
-            $user->save();
+            $user = User::updateOrCreate(
+                ['email' => $data->email], // Unique constraint to find or create the user
+                [
+                    'name' => $data->name,
+                    'provider_id' => $data->id,
+                    'avatar' => $data->avatar,
+                ]
+            );
+
+            // After creating or updating the user, assign the 'member' role
+            $user->assignRole('member');
+
         }
+
         Auth::login($user);
     }
 }

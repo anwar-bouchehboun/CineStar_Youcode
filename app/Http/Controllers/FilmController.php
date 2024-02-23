@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\Actor;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
@@ -12,7 +13,9 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        $actors = Actor::all();
+        // dd($actors);
+        return view('films.index', compact('actors'));
     }
 
     /**

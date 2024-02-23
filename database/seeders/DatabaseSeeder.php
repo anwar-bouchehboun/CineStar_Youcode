@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(RoleSedder::class);
         $this->call(AdminSedder::class);
+        $this->call([
+            ActorsTableSeeder::class,
+        ]);
     }
 }
