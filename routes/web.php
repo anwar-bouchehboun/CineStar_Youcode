@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Films page  route 
+//Films page  route
 Route::get('/films', [FilmController::class, 'index'])->name('films.index');
 
 

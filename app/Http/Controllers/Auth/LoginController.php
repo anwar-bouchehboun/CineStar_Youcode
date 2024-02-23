@@ -23,13 +23,13 @@ class LoginController extends Controller
         try {
             // Retrieve user information from Google
             $user = Socialite::driver('google')->user();
-    
+
             // Register or login the user
             $this->registerOrLoginUser($user);
-    
+
             // Redirect to the home page
             return redirect(RouteServiceProvider::HOME);
-    
+
         } catch (\Exception $e) {
             // Handle exceptions, you might want to log the error
             // and redirect the user to an error page or login page
@@ -52,9 +52,9 @@ class LoginController extends Controller
 
     }
 
-    protected function _registerOrLoginUser($data)
+    protected function registerOrLoginUser($data)
     {
-       //test 
+       //test
         $user = User::where('email', '=', $data["email"])->first();
         if (!$user) {
             $user = new User();
