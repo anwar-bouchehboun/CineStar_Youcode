@@ -10,14 +10,17 @@ return new class extends Migration {
      */
     public function up(): void
     {
-         //users
+        //users
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', ['admin', 'member']);
+            $table->string('provider_id')->nullable();
+            // google
+            $table->string('avatar')->nullable();
+            $table->enum('role', ['admin', 'member'])->default('member');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
