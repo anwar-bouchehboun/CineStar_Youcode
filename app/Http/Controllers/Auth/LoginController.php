@@ -27,7 +27,7 @@ class LoginController extends Controller
 
             // if the user exits, use that user and login
 
-            $this->_registerOrLoginUser($user);
+            $this->registerOrLoginUser($user);
             return redirect(RouteServiceProvider::HOME);
 
             //catch exceptions
@@ -50,9 +50,9 @@ class LoginController extends Controller
 
     }
 
-    protected function _registerOrLoginUser($data)
+    protected function registerOrLoginUser($data)
     {
-       //test 
+        //test
         $user = User::where('email', '=', $data["email"])->first();
         if (!$user) {
             $user = new User();
