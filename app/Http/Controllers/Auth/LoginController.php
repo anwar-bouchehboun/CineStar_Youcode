@@ -20,18 +20,20 @@ class LoginController extends Controller
 
     public function callback()
     {
-
         try {
-            //create a user using socialite driver google
+            // Retrieve user information from Google
             $user = Socialite::driver('google')->user();
-
-            // if the user exits, use that user and login
-
-            $this->_registerOrLoginUser($user);
+    
+            // Register or login the user
+            $this->registerOrLoginUser($user);
+    
+            // Redirect to the home page
             return redirect(RouteServiceProvider::HOME);
-
-            //catch exceptions
-        } catch (Exception $e) {
+    
+        } catch (\Exception $e) {
+            // Handle exceptions, you might want to log the error
+            // and redirect the user to an error page or login page
+            // with an error message.
             dd($e->getMessage());
         }
     }
