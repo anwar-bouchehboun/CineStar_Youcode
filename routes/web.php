@@ -2,12 +2,12 @@
 
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BookingFilmController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-
-
+use App\Http\Controllers\TodayShowingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +53,11 @@ Route::get('/auth/google/callback', [LoginController::class, 'callback']);
 // Route::get('/login/google', 'LoginController@redirectToGoogle')->name('login.google');
 // Route::get('/login/google/callback', 'LoginController@handleGoogleCallback');
 
+// booking route 
+Route::get('/films/booking-film', [BookingFilmController::class, 'index'])->name('films.booking-film');
+
+// TodayShowing route
+Route::get('/films/todays-showing', [TodayShowingController::class, 'index'])->name('films.todays-showing');
 
 
 require __DIR__ . '/auth.php';
