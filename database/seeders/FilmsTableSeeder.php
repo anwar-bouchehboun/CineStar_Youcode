@@ -14,29 +14,27 @@ class FilmsTableSeeder extends Seeder
     public function run()
     {
         DB::table('films')->insert([
-            
             [
                 'FilmName' => 'Tenet',
                 'FilmDesc' => 'Description for Film 1',
                 'FilmImage' => 'https://upload.wikimedia.org/wikipedia/en/1/14/Tenet_movie_poster.jpg',
                 'FilmDuration' => '21:00',
-                'genre_id' => 1, 
+                'genre_id' => 1,
             ],
             [
                 'FilmName' => 'Fight Club',
                 'FilmDesc' => 'Description for Film 2',
                 'FilmImage' => 'https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg',
                 'FilmDuration' => '23:00',
-                'genre_id' => 2, 
+                'genre_id' => 2,
             ],
             [
                 'FilmName' => 'Dune',
                 'FilmDesc' => 'Description for Film 3',
                 'FilmImage' => 'https://upload.wikimedia.org/wikipedia/en/8/8e/Dune_%282021_film%29.jpg',
                 'FilmDuration' => '23:00',
-                'genre_id' => 2, 
+                'genre_id' => 3,
             ],
         ]);
-
-    }
+    }    
 }
