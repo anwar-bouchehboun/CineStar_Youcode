@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -56,6 +56,8 @@ Route::get('/auth/google/callback', [LoginController::class, 'callback']);
 // Route::get('/login/google', 'LoginController@redirectToGoogle')->name('login.google');
 // Route::get('/login/google/callback', 'LoginController@handleGoogleCallback');
 
-
+Route::fallback(function() {
+    return view('404'); // la vue 404.blade.php
+ });
 
 require __DIR__ . '/auth.php';
