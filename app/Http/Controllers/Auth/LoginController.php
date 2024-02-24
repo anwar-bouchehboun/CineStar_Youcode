@@ -52,7 +52,7 @@ class LoginController extends Controller
 
     }
 
-    protected function _registerOrLoginUser($data)
+    protected function registerOrLoginUser($data)
     {
        //test 
         $user = User::where('email', '=', $data["email"])->first();

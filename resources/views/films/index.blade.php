@@ -11,8 +11,7 @@
     <div
         class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 ">
         <!-- Left Sidebar -->
-        <aside
-            class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block ">
+        <aside class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block ">
 
             <!-- CinéStar Logo  -->
             <div class=" font-bold text-lg flex items-center gap-x-3">
@@ -97,20 +96,36 @@
 
 
             <section>
-                <!--Searsh -->
-                <div>
-                    <div class="relative items-center content-center flex ml-2">
-                        <span class="text-gray-400 absolute left-4 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </span>
-                        <input type="text"
-                            class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
-                            placeholder="Search ...">
+                <!-- Search -->
+                <div class="flex justify-between">
+                    <div>
+                        <div class="relative items-center content-center flex ml-2">
+                            <span class="text-gray-400 absolute left-4 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </span>
+                            <input type="text"
+                                class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
+                                placeholder="Search ...">
+                        </div>
                     </div>
+
+                    @auth
+                        <!-- Display User Info -->
+                        <div class="flex gap-4">
+                            @if (empty(Auth::user()->avatar))
+                                <img src="{{ asset('/storage/images/default-avatar.jpg') }}" alt="Default Avatar"
+                                    class="rounded-full h-10 w-10">
+                            @else
+                                <img src="{{ Auth::user()->avatar }}" alt="User Image" class="rounded-full h-10 w-10">
+                            @endif
+                            <span class="mt-3 text-white font-bold">{{ Auth::user()->name }}</span>
+                        </div>
+                    @endauth
+
                 </div>
                 <!--Film publication -->
                 <div class="flex flex-col justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl h-80 overflow-hidden bg-cover bg-center px-7 pt-4 pb-6 text-white"
@@ -137,18 +152,18 @@
                 <!--Stars-->
                 <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
                     @foreach ($actors as $actor)
-                    <div class="relative rounded-xl overflow-hidden">
-                        <img src="{{$actor->ActorImg}}"
-                            class="object-cover h-full w-full -z-10" alt="">
-                        <div
-                            class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                            <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">{{$actor->ActorName}}</span>
-                                <span class="text-gray-100 text-xs">+12 Movies</span>
+                        <div class="relative rounded-xl overflow-hidden">
+                            <img src="{{ $actor->ActorImg }}" class="object-cover h-full w-full -z-10" alt="">
+                            <div
+                                class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
+                                <div class="self-center flex flex-col items-center space-y-2">
+                                    <span
+                                        class="capitalize text-white font-medium drop-shadow-md">{{ $actor->ActorName }}</span>
+                                    <span class="text-gray-100 text-xs">+12 Movies</span>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </section>
@@ -168,8 +183,8 @@
                             class="w-full h-1/5 bg-white dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
                             <span class="capitalize  font-medium truncate">Tenet</span>
                             <div class="flex space-x-2 items-center text-xs">
-                                <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64"
-                                    height="32" viewBox="0 0 64 32" version="1.1">
+                                <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64" height="32"
+                                    viewBox="0 0 64 32" version="1.1">
                                     <g fill="#F5C518">
                                         <rect x="0" y="0" width="100%" height="100%" rx="4"></rect>
                                     </g>
@@ -254,7 +269,7 @@
 
 
                 </div>
-                
+
             </section>
         </main>
     </div>

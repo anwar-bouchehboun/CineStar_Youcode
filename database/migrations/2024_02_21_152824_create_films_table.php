@@ -11,13 +11,14 @@ return new class extends Migration {
     public function up(): void
     {
         //films
+        Schema::enableForeignKeyConstraints();
         Schema::create('films', function (Blueprint $table) {
             $table->id();
             $table->string('FilmName');
             $table->string('FilmDesc');
             $table->string('FilmImage');
             $table->enum('FilmDuration', ['21:00', '23:00']);
-            $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade')->nullable(); // i add nullable her 
             $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
