@@ -14,8 +14,9 @@ class FilmController extends Controller
     public function index()
     {
         $actors = Actor::all();
-        // dd($actors);
-        return view('films.index', compact('actors'));
+        $TopFilms = Film::take(3)->get();
+        // dd($TopFilms);
+        return view('films.index', compact('actors', 'TopFilms'));
     }
 
     /**
