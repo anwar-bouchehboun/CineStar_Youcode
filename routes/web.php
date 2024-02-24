@@ -4,6 +4,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\EmailControllers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -23,6 +24,7 @@ use App\Http\Controllers\Auth\LoginController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/email', [EmailControllers::class,'index']);
 
 
 Route::middleware(['auth','role:admin'])->group(function () {
@@ -33,6 +35,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 Route::middleware(['auth','role:member'])->group(function () {
     Route::get('/films', [FilmController::class, 'index'])->name('films.index');
+    Route::get('/email', [EmailControllers::class,'index']);
 });
 
 Route::middleware(['auth','role:admin'])->group(function () {
