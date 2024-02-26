@@ -14,7 +14,7 @@ class EmailControllers extends Controller
         $user = Auth::user();
 
         $subject = 'Ticket';
-        $body = 'CODE Qr Message ';
+        $body = 'CINESTAR ';
 
         Mail::to($user->email)->send(new TestMail($subject, $body));
     }

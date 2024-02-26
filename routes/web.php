@@ -36,6 +36,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
 Route::middleware(['auth','role:member'])->group(function () {
     Route::get('/films', [FilmController::class, 'index'])->name('films.index');
     Route::get('/email', [EmailControllers::class,'index']);
+    
 });
 
 Route::middleware(['auth','role:admin'])->group(function () {
