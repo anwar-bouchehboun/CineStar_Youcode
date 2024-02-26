@@ -4,6 +4,7 @@
     $user = $user ?? null;
 @endphp
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +13,17 @@
     <title>CEINMA STAR Flight Ticket</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="p-6 ">
-    <main class="flex flex-col w-screen h-screen bg-gray-100" >
-        <section class="flex items-center justify-center flex-grow w-full p-4 " style="background-color: rgb(27, 156, 216);">
-            <div class="flex w-full h-64 max-w-3xl text-zinc-50">
-            {{-- code bar --}}
-            {{-- <div class="flex items-center justify-center mr-4">
-                <img src="path/to/your/qr_code.png" alt="QR Code" class="">
-            </div> --}}
-            <div class="flex px-3 mt-2 rounded-full bg-lime-400" style="rotate: 90deg;heigth:12rem">
-                <span class="text-sm text-white ">Ticket Number :   13234567</span>
-
-            </div>
+<body class="p-6">
+    <main class="flex flex-col w-screen h-screen" >
+        <section class="flex items-center justify-center flex-grow w-full p-4 bg-red-800" >
+            <div class="flex w-full h-64 max-w-3xl text-zinc-50" style="background-color: rgb(27, 156, 216);">
+                {{-- code bar --}}
+                {{-- <div class="flex items-center justify-center mr-4">
+                    <img src="path/to/your/qr_code.png" alt="QR Code" class="">
+                </div> --}}
+                <div class="flex px-3 mt-2 rounded-full bg-lime-400" style="rotate: 90deg;heigth:12rem">
+                    <span class="text-sm text-white ">Ticket Number :   13234567</span>
+                </div>
                 <div class="relative flex flex-col items-center justify-between h-full border-2 border-dashed bg-zinc-900 border-zinc-50">
                     <div class="absolute w-8 h-8 rounded-full bg-zinc-200 -top-5"></div>
                     <div class="absolute w-8 h-8 rounded-full bg-zinc-200 -bottom-5"></div>
@@ -54,14 +54,14 @@
                                     <path d="m50 10.417h10.417v4.166h-10.417z"/>
                                     <path d="m35.417 14.583h10.416v-4.166h-10.416z"/>
                                     <g fill="#666">
-                                      <path d="m20.833 14.583h10.417v-4.166h-10.417z"/>
-                                      <path d="m16.667 10.417v4.166h-10.417v-4.166z"/>
+                                        <path d="m20.833 14.583h10.417v-4.166h-10.417z"/>
+                                        <path d="m16.667 10.417v4.166h-10.417v-4.166z"/>
                                     </g>
-                                  </svg>
-                                                                  <div class="flex-grow h-px border-t-2 border-dotted border-zinc-400"></div>
+                                </svg>
+
+                                <div class="flex-grow h-px border-t-2 border-dotted border-zinc-400"></div>
                                 <div class="w-3 h-3 border-2 rounded-full border-zinc-900"></div>
                             </div>
-
                         </div>
                         <div class="flex flex-col items-center">
                             <span class="text-4xl font-bold">FILM</span>
@@ -89,7 +89,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 </body>
 </html>
