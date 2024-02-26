@@ -17,6 +17,9 @@
         <section class="flex items-center justify-center flex-grow w-full p-4 " style="background-color: rgb(27, 156, 216);">
             <div class="flex w-full h-64 max-w-3xl text-zinc-50">
             {{-- code bar --}}
+            {{-- <div class="flex items-center justify-center mr-4">
+                <img src="path/to/your/qr_code.png" alt="QR Code" class="">
+            </div> --}}
             <div class="flex px-3 mt-2 rounded-full bg-lime-400" style="rotate: 90deg;heigth:12rem">
                 <span class="text-sm text-white ">Ticket Number :   13234567</span>
 
