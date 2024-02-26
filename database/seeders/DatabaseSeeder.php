@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             FilmsTableSeeder::class,
         ]);
+        $this->call([
+            SalleSeeder::class,
+        ]);
+        $this->call([
+            TodayShowingsSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
