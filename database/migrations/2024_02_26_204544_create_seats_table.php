@@ -4,18 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        //cheise
-        Schema::create('cheises', function (Blueprint $table) {
+        Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_booked');
             $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignid('reservation_id')->constrained('reservations')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('seat_number');
+            $table->enum('seat_status', ['available', 'reserved'])->default('available');
+            $table->foreignId('zone_id')->constrained('zones')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('cheises');
+        Schema::dropIfExists('seats');
     }
 };

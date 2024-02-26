@@ -32,6 +32,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ZoneSeeder::class,
         ]);
+        $this->call([
+            SeatsSeeder::class,
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
