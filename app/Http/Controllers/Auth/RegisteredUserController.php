@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role'=>'required',
         ]);
-            // dd($request->all());
+            //  dd($request->all());
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -48,6 +48,13 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        $url = '';
+        if ($request->user()->role === 'admin') {
+            $url = '/dashboard';
+        } elseif ($request->user()->role === 'member') {
+            $url = '/films';
+        }
+
+        return redirect()->intended($url);
     }
 }

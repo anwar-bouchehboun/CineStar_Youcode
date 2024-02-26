@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actor;
-use App\Models\Film;
 use Illuminate\Http\Request;
 
-class FilmController extends Controller
+class ActorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $actors = Actor::all();
-        // dd($actors);
-        return view('films.index', compact('actors'));
+        //
     }
 
     /**
@@ -37,7 +34,7 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Film $film)
+    public function show(Actor $actor)
     {
         //
     }
@@ -45,7 +42,7 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Film $film)
+    public function edit(Actor $actor)
     {
         //
     }
@@ -53,7 +50,7 @@ class FilmController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Film $film)
+    public function update(Request $request, Actor $actor)
     {
         //
     }
@@ -61,7 +58,7 @@ class FilmController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Film $film)
+    public function destroy(Actor $actor)
     {
         //
     }
