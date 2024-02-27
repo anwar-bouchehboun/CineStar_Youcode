@@ -35,22 +35,23 @@
                     <div class="mb-4">
                         <h3 class="text-lg font-semibold">{{ $showing->salle->saleName }} - {{ $zone->zone_name }}</h3>
                         <p>Price: {{ $zone->zone_price }}$</p>
-                        <form action="#" method="post">
+                        <form action="{{ route('reserve.seats') }}" method="post" class="reserve-form">
                             @csrf
                             <input type="hidden" name="today_showing_id" value="{{ $showing->id }}">
                             <input type="hidden" name="salle_id" value="{{ $showing->salle->id }}">
                             <input type="hidden" name="zone_id" value="{{ $zone->id }}">
-
+    
                             @foreach($zone->seats as $seat)
                                 <label class="mr-2">
-                                    <input type="radio" name="selected_seats[]" value="{{ $seat->id }}">
+                                    <input type="checkbox" name="selected_seats[]" value="{{ $seat->id }}">
                                     Seat {{ $seat->seat_number }}
                                 </label>
                             @endforeach
+    
+                            <button type="submit" class="btn btn-primary mt-2">Reserve Seats</button>
                         </form>
                     </div>
                 @endforeach
-                <button type="submit" class="btn btn-primary mt-2">Reserve Seats</button>
             </div>
         </section>
     @endforeach

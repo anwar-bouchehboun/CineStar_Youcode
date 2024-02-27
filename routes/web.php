@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\TodayShowingController;
 
 /*
@@ -58,6 +59,11 @@ Route::get('/films/booking-film', [BookingFilmController::class, 'index'])->name
 
 // TodayShowing route
 Route::get('/films/todays-showing', [TodayShowingController::class, 'index'])->name('films.todays-showing');
+
+//reserve 
+
+Route::post('/reserve-seats', [ReserveController::class, 'reserveSeats'])->name('reserve.seats');
+
 
 
 require __DIR__ . '/auth.php';

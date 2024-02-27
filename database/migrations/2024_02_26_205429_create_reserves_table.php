@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(); 
             $table->foreignId('today_showing_id')->constrained('today_showings')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('seat_id')->constrained('seats')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade')->after('today_showing_id');
             $table->dateTime('reservation_time');
             $table->timestamps();
         });
