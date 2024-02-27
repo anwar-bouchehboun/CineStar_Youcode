@@ -27,8 +27,8 @@ class LoginController extends Controller
             // Register or login the user
             $this->registerOrLoginUser($user);
 
-            // Redirect to the home page
-            return redirect(RouteServiceProvider::HOME);
+            $this->registerOrLoginUser($user);
+            return redirect(RouteServiceProvider::FILM);
 
         } catch (\Exception $e) {
             // Handle exceptions, you might want to log the error
@@ -54,16 +54,24 @@ class LoginController extends Controller
 
     protected function registerOrLoginUser($data)
     {
-       //test
+        //test
         $user = User::where('email', '=', $data["email"])->first();
+
         if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->avatar = $data->avatar;
-            $user->save();
+            $user = User::updateOrCreate(
+                ['email' => $data->email], // Unique constraint to find or create the user
+                [
+                    'name' => $data->name,
+                    'provider_id' => $data->id,
+                    'avatar' => $data->avatar,
+                ]
+            );
+
+            // After creating or updating the user, assign the 'member' role
+            $user->assignRole('member');
+
         }
+
         Auth::login($user);
     }
 }

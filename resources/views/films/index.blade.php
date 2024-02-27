@@ -7,16 +7,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-montserrat text-sm bg-white dark:bg-zinc-900 ">
+<body class="text-sm bg-white font-montserrat dark:bg-zinc-900 ">
     <div
-        class="flex min-h-screen  2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 ">
+        class="flex min-h-screen 2xl:max-w-screen-2xl 2xl:mx-auto 2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700 ">
         <!-- Left Sidebar -->
         <aside
-            class=" w-1/6 py-10 pl-10  min-w-min  border-r border-gray-300 dark:border-zinc-700  hidden md:block ">
+            class="hidden w-1/6 py-10 pl-10 border-r border-gray-300  min-w-min dark:border-zinc-700 md:block">
 
             <!-- CinéStar Logo  -->
-            <div class=" font-bold text-lg flex items-center gap-x-3">
-                <svg class="h-8 w-8 fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <div class="flex items-center text-lg font-bold  gap-x-3">
+                <svg class="w-8 h-8 fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                         d="M10 15.5v-7c0-.41.47-.65.8-.4l4.67 3.5c.27.2.27.6 0 .8l-4.67 3.5c-.33.25-.8.01-.8-.4Zm11.96-4.45c.58 6.26-4.64 11.48-10.9 10.9 -4.43-.41-8.12-3.85-8.9-8.23 -.26-1.42-.19-2.78.12-4.04 .14-.58.76-.9 1.31-.7v0c.47.17.75.67.63 1.16 -.2.82-.27 1.7-.19 2.61 .37 4.04 3.89 7.25 7.95 7.26 4.79.01 8.61-4.21 7.94-9.12 -.51-3.7-3.66-6.62-7.39-6.86 -.83-.06-1.63.02-2.38.2 -.49.11-.99-.16-1.16-.64v0c-.2-.56.12-1.17.69-1.31 1.79-.43 3.75-.41 5.78.37 3.56 1.35 6.15 4.62 6.5 8.4ZM5.5 4C4.67 4 4 4.67 4 5.5 4 6.33 4.67 7 5.5 7 6.33 7 7 6.33 7 5.5 7 4.67 6.33 4 5.5 4Z">
                     </path>
@@ -25,20 +25,20 @@
             </div>
 
             <!-- Menu -->
-            <div class="mt-12 flex flex-col gap-y-4 text-gray-500 fill-gray-500 text-sm">
-                <div class="text-gray-400/70  font-medium uppercase">Menu</div>
-                <a class="flex items-center space-x-2 py-1 dark:text-white  font-semibold  border-r-4 border-r-red-600 pr-20 "
+            <div class="flex flex-col mt-12 text-sm text-gray-500 gap-y-4 fill-gray-500">
+                <div class="font-medium uppercase text-gray-400/70">Menu</div>
+                <a class="flex items-center py-1 pr-20 space-x-2 font-semibold border-r-4 dark:text-white border-r-red-600 "
                     href="#">
-                    <svg class="h-5 w-5 fill-red-600 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 fill-red-600 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                             d="M5 22h14v0c1.1 0 2-.9 2-2v-9 0c0-.27-.11-.53-.29-.71l-8-8v0c-.4-.39-1.02-.39-1.41 0l-8 8h0c-.2.18-.3.44-.3.71v9 0c0 1.1.89 2 2 2Zm5-2v-5h4v5Zm-5-8.59l7-7 7 7V20h-3v-5 0c0-1.11-.9-2-2-2h-4v0c-1.11 0-2 .89-2 2v5H5Z">
                         </path>
                     </svg>
                     <span>Home</span>
                 </a>
-                <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white "
+                <a class="flex items-center py-1 space-x-2  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white"
                     href="#">
-                    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-5 h-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <g>
                             <path
@@ -49,9 +49,9 @@
                     </svg>
                     <span>All Films</span>
                 </a>
-                <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white "
+                <a class="flex items-center py-1 space-x-2  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white"
                     href="#">
-                    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-5 h-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <g>
                             <path
@@ -62,10 +62,10 @@
                     </svg>
                     <span>Today's Showings</span>
                 </a>
-                <div class="mt-8 text-gray-400/70  font-medium uppercase">Social</div>
-                <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white "
+                <div class="mt-8 font-medium uppercase text-gray-400/70">Social</div>
+                <a class="flex items-center py-1 space-x-2  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white"
                     href="#">
-                    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-5 h-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12 2v0C9.23 2 7 4.23 7 7c0 2.76 2.23 5 5 5 2.76 0 5-2.24 5-5v0c0-2.77-2.24-5-5-5Zm0 8v0c-1.66 0-3-1.35-3-3 0-1.66 1.34-3 3-3 1.65 0 3 1.34 3 3v0c0 1.65-1.35 3-3 3Zm9 11v-1 0c0-3.87-3.14-7-7-7h-4v0c-3.87 0-7 3.13-7 7v1h2v-1 0c0-2.77 2.23-5 5-5h4v0c2.76 0 5 2.23 5 5v1Z">
@@ -73,10 +73,10 @@
                     </svg>
                     <span>Profile</span>
                 </a>
-                <div class="mt-8 text-gray-400/70  font-medium uppercase">General</div>
-                <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white"
+                <div class="mt-8 font-medium uppercase text-gray-400/70">General</div>
+                <a class="flex items-center py-1 space-x-2  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white"
                     href="#">
-                    <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="w-5 h-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <g>
                             <path d="M16 13v-2H7V8l-5 4 5 4v-3Z"></path>
@@ -92,34 +92,34 @@
         </aside><!-- /Left Sidebar -->
 
 
-        <main class=" flex-1 py-10  px-5 sm:px-10 ">
+        <main class="flex-1 px-5 py-10  sm:px-10">
 
 
 
             <section>
                 <!--Searsh -->
                 <div>
-                    <div class="relative items-center content-center flex ml-2">
-                        <span class="text-gray-400 absolute left-4 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    <div class="relative flex items-center content-center ml-2">
+                        <span class="absolute text-gray-400 cursor-pointer left-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </span>
                         <input type="text"
-                            class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
+                            class="w-full py-3 pl-10 pr-5 text-xs text-gray-600 bg-transparent rounded-full outline-none ring-1 ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 dark:text-white focus:ring-1"
                             placeholder="Search ...">
                     </div>
                 </div>
                 <!--Film publication -->
-                <div class="flex flex-col justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl h-80 overflow-hidden bg-cover bg-center px-7 pt-4 pb-6 text-white"
+                <div class="flex flex-col justify-between pt-4 pb-6 mt-4 overflow-hidden text-white bg-center bg-cover bg-black/10 bg-blend-multiply rounded-3xl h-80 px-7"
                     style="background-image: url('images/inception.jpg');">
-                    <div class="bg-gradient-to-r from-black/30 to-transparent -mx-7 -mb-6 px-7 pb-6 pt-2">
-                        <span class="uppercase text-3xl font-semibold drop-shadow-lg ">Experience the Magic: Premiering
+                    <div class="pt-2 pb-6 -mb-6 bg-gradient-to-r from-black/30 to-transparent -mx-7 px-7">
+                        <span class="text-3xl font-semibold uppercase drop-shadow-lg ">Experience the Magic: Premiering
                             at <span class="text-red-900">CimaStar</span> on <span class="text-yellow-300">March
                                 22nd!</span></span>
-                        <div class="mt-4 flex space-x-3 items-center">
+                        <div class="flex items-center mt-4 space-x-3">
 
                         </div>
                     </div>
@@ -131,20 +131,20 @@
             <section class="mt-9">
 
                 <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-700 text-base dark:text-white">Top Stars</span>
+                    <span class="text-base font-semibold text-gray-700 dark:text-white">Top Stars</span>
                 </div>
 
                 <!--Stars-->
-                <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
+                <div class="grid grid-cols-2 mt-4 sm:grid-cols-4 gap-x-5 gap-y-5">
                     @foreach ($actors as $actor)
-                    <div class="relative rounded-xl overflow-hidden">
+                    <div class="relative overflow-hidden rounded-xl">
                         <img src="{{$actor->ActorImg}}"
-                            class="object-cover h-full w-full -z-10" alt="">
+                            class="object-cover w-full h-full -z-10" alt="">
                         <div
-                            class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                            <div class="self-center flex flex-col items-center space-y-2">
-                                <span class="capitalize text-white font-medium drop-shadow-md">{{$actor->ActorName}}</span>
-                                <span class="text-gray-100 text-xs">+12 Movies</span>
+                            class="absolute top-0 flex flex-col justify-end w-full h-full p-3 bg-gradient-to-t from-black/50">
+                            <div class="flex flex-col items-center self-center space-y-2">
+                                <span class="font-medium text-white capitalize drop-shadow-md">{{$actor->ActorName}}</span>
+                                <span class="text-xs text-gray-100">+12 Movies</span>
 
                             </div>
                         </div>
@@ -156,18 +156,18 @@
             <!--Films Section -->
             <section class="mt-9">
                 <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-700 text-base dark:text-white">Similar Movies</span>
+                    <span class="text-base font-semibold text-gray-700 dark:text-white">Similar Movies</span>
                 </div>
 
-                <div class="mt-4 grid grid-cols-2 gap-y-5 sm:grid-cols-3 gap-x-5 ">
+                <div class="grid grid-cols-2 mt-4 gap-y-5 sm:grid-cols-3 gap-x-5 ">
                     <a href="#"
-                        class="flex flex-col rounded-xl overflow-hidden aspect-square border dark:border-zinc-600">
+                        class="flex flex-col overflow-hidden border rounded-xl aspect-square dark:border-zinc-600">
                         <img src="https://upload.wikimedia.org/wikipedia/en/1/14/Tenet_movie_poster.jpg"
-                            class=" h-4/5 object-cover w-full  " alt="">
+                            class="object-cover w-full  h-4/5" alt="">
                         <div
-                            class="w-full h-1/5 bg-white dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
-                            <span class="capitalize  font-medium truncate">Tenet</span>
-                            <div class="flex space-x-2 items-center text-xs">
+                            class="flex items-center justify-between w-full px-3 bg-white border-t-2 h-1/5 dark:bg-zinc-800 dark:text-white border-t-red-600">
+                            <span class="font-medium capitalize truncate">Tenet</span>
+                            <div class="flex items-center space-x-2 text-xs">
                                 <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64"
                                     height="32" viewBox="0 0 64 32" version="1.1">
                                     <g fill="#F5C518">
@@ -191,13 +191,13 @@
                         </div>
                     </a>
                     <a href="#"
-                        class="flex flex-col rounded-xl overflow-hidden aspect-square border dark:border-zinc-600">
+                        class="flex flex-col overflow-hidden border rounded-xl aspect-square dark:border-zinc-600">
                         <img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg"
-                            class=" h-4/5 object-cover w-full  " alt="">
+                            class="object-cover w-full  h-4/5" alt="">
                         <div
-                            class="w-full h-1/5 bg-white dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
-                            <span class="capitalize  font-medium truncate">Fight Club</span>
-                            <div class="flex space-x-2 items-center text-xs">
+                            class="flex items-center justify-between w-full px-3 bg-white border-t-2 h-1/5 dark:bg-zinc-800 dark:text-white border-t-red-600">
+                            <span class="font-medium capitalize truncate">Fight Club</span>
+                            <div class="flex items-center space-x-2 text-xs">
                                 <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64"
                                     height="32" viewBox="0 0 64 32" version="1.1">
                                     <g fill="#F5C518">
@@ -221,13 +221,13 @@
                         </div>
                     </a>
                     <a href="#"
-                        class="flex flex-col rounded-xl overflow-hidden aspect-square border dark:border-zinc-600">
+                        class="flex flex-col overflow-hidden border rounded-xl aspect-square dark:border-zinc-600">
                         <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Dune_%282021_film%29.jpg"
-                            class=" h-4/5 object-cover w-full  " alt="">
+                            class="object-cover w-full  h-4/5" alt="">
                         <div
-                            class="w-full h-1/5 bg-white dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
-                            <span class="capitalize  font-medium truncate">Dune</span>
-                            <div class="flex space-x-2 items-center text-xs">
+                            class="flex items-center justify-between w-full px-3 bg-white border-t-2 h-1/5 dark:bg-zinc-800 dark:text-white border-t-red-600">
+                            <span class="font-medium capitalize truncate">Dune</span>
+                            <div class="flex items-center space-x-2 text-xs">
                                 <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64"
                                     height="32" viewBox="0 0 64 32" version="1.1">
                                     <g fill="#F5C518">
@@ -254,7 +254,7 @@
 
 
                 </div>
-                
+
             </section>
         </main>
     </div>

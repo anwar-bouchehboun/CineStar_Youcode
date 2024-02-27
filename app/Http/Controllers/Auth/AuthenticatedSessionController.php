@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -28,15 +29,18 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $hasMemberRole = Auth::user()->hasRole('member');
 
-        $url = '';
-        if ($request->user()->role === 'admin') {
-            $url = '/dashboard';
-        } elseif ($request->user()->role === 'member') {
-            $url = '/films';
+        if($hasMemberRole){
+            return redirect(RouteServiceProvider::FILM);
+
         }
+        return redirect(RouteServiceProvider::HOME);
 
-        return redirect()->intended($url);
+    //  dd($request->hasRole('member'));
+// dd($request);
+
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
