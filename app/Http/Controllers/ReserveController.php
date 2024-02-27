@@ -10,7 +10,7 @@ class ReserveController extends Controller
     public function reserveSeats(Request $request)
 {
     // Validate the request data as needed
-    $request->validate([
+   /* $request->validate([
         'today_showing_id' => 'required',
         'salle_id' => 'required',
         'zone_id' => 'required',
@@ -29,7 +29,7 @@ class ReserveController extends Controller
             'seat_id' => $seatId,
             'reservation_time' => $reservationTime,
         ]);
-    }
+    }*/
 
     // Redirect or respond as needed
     return redirect()->back()->with('success', 'Seats reserved successfully');

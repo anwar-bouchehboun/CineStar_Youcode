@@ -58,7 +58,7 @@ Route::get('/auth/google/callback', [LoginController::class, 'callback']);
 Route::get('/films/booking-film', [BookingFilmController::class, 'index'])->name('films.booking-film');
 
 // TodayShowing route
-Route::get('/films/todays-showing', [TodayShowingController::class, 'index'])->name('films.todays-showing');
+Route::get('/films/todays-showing/{film_id}', [TodayShowingController::class, 'index'])->name('films.todays-showing');
 
 //reserve 
 

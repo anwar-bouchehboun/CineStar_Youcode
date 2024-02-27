@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Actor;
 use App\Models\Film;
+use App\Models\TodayShowing;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
@@ -15,8 +16,13 @@ class FilmController extends Controller
     {
         $actors = Actor::all();
         $TopFilms = Film::take(3)->get();
-        // dd($TopFilms);
-        return view('films.index', compact('actors', 'TopFilms'));
+        $today = now()->toDateString();
+
+        $todayShowings = TodayShowing::with(['film', 'film.genre', 'salle', 'salle.zones.seats'])
+            ->where('date', $today)
+            ->get();
+        //  dd($todayShowings);
+        return view('films.index', compact('actors', 'TopFilms','todayShowings'));
     }
 
     /**

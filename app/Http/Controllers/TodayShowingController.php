@@ -8,15 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class TodayShowingController extends Controller
 {
-    public function index()
-{
-    $today = now()->toDateString();
-
-    $todayShowings = TodayShowing::with(['film', 'film.genre', 'salle', 'salle.zones.seats'])
-        ->where('date', $today)
-        ->get();
-    //dd($todayShowings);
-
-    return view('films.todays-showing', compact('todayShowings'));
-}
+    public function index($film_id)
+    {
+        $filmDetails = TodayShowing::with(['film', 'film.genre', 'salle', 'salle.zones.seats'])
+            ->where('id', $film_id)
+            ->firstOrFail();
+            //dd($filmDetails);
+        return view('films.todays-showing', compact('filmDetails'));
+    }
+    
 }

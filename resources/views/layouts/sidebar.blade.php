@@ -52,7 +52,7 @@
                 </a>
                 {{-- Today's Showings  --}}
                 <a class=" flex items-center space-x-2 py-1  group hover:border-r-4 hover:border-r-red-600 hover:font-semibold dark:hover:text-white "
-                    href="{{ route('films.todays-showing') }}">
+                    href="#">
                     <svg class="h-5 w-5 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <g>
