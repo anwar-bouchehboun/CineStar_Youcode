@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('showing_time', ['21:00 PM', '23:00 PM']);
             $table->date('date');
-            $table->timestamps();
+
+ 
         });
     }
     /**

@@ -87,24 +87,24 @@
             <section class="mt-9">
 
                 <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-700 text-base dark:text-white">Top Stars</span>
+                    <span class="text-base font-semibold text-gray-700 dark:text-white">Top Stars</span>
                 </div>
 
                 <!--Stars-->
-                <div class="mt-4 grid grid-cols-2  sm:grid-cols-4 gap-x-5 gap-y-5">
+                <div class="grid grid-cols-2 mt-4 sm:grid-cols-4 gap-x-5 gap-y-5">
                     @foreach ($actors as $actor)
-                        <div class="relative rounded-xl overflow-hidden">
-                            <img src="{{ $actor->ActorImg }}" class="object-cover h-full w-full -z-10" alt="">
-                            <div
-                                class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-end">
-                                <div class="self-center flex flex-col items-center space-y-2">
-                                    <span
-                                        class="capitalize text-white font-medium drop-shadow-md">{{ $actor->ActorName }}</span>
-                                    <span class="text-gray-100 text-xs">+12 Movies</span>
+                    <div class="relative overflow-hidden rounded-xl">
+                        <img src="{{$actor->ActorImg}}"
+                            class="object-cover w-full h-full -z-10" alt="">
+                        <div
+                            class="absolute top-0 flex flex-col justify-end w-full h-full p-3 bg-gradient-to-t from-black/50">
+                            <div class="flex flex-col items-center self-center space-y-2">
+                                <span class="font-medium text-white capitalize drop-shadow-md">{{$actor->ActorName}}</span>
+                                <span class="text-xs text-gray-100">+12 Movies</span>
 
-                                </div>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             </section>
