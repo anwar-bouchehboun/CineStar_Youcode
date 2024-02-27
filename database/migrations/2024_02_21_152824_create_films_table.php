@@ -16,8 +16,7 @@ return new class extends Migration {
             $table->string('FilmName');
             $table->string('FilmDesc');
             $table->string('FilmImage');
-            $table->enum('FilmDuration', ['21:00', '23:00']);
-            $table->foreignId('salle_id')->constrained('salles')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('FilmDuration');
             $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
