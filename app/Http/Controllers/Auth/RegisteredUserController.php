@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'avatar' => $path
+            // 'avatar' => $path
         ]);
 
         $user->assignRole('member');
@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
         //  dd( $user->role);
         if ($user->hasRole('member')) {
             return redirect(RouteServiceProvider::FILM);
-
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 }
