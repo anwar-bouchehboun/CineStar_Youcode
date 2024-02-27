@@ -20,7 +20,14 @@ class LoginController extends Controller
 
     public function callback()
     {
-        try {
+        // Retrieve user information from Google
+        $user = Socialite::driver('google')->user();
+
+        // if the user exits, use that user and login
+
+        $this->registerOrLoginUser($user);
+        return redirect(RouteServiceProvider::FILM);
+        /*try {
             // Retrieve user information from Google
             $user = Socialite::driver('google')->user();
 
@@ -30,9 +37,9 @@ class LoginController extends Controller
             return redirect(RouteServiceProvider::FILM);
 
             //catch exceptions
-        } catch (Exception $e) {
+        } catch (Exeption $e) {
             dd($e->getMessage());
-        }
+        }*/
     }
 
 
