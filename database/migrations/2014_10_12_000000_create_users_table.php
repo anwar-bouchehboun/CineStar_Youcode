@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->string('provider_id')->nullable();
             // google
             $table->string('avatar')->nullable();
-            $table->enum('role', ['admin', 'member'])->default('member');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
