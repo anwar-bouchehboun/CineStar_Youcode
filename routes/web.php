@@ -4,7 +4,6 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FilmController;
 use App\Http\Controllers\EmailControllers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
