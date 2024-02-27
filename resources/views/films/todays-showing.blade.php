@@ -7,19 +7,18 @@
             <div class="flex rounded-3xl overflow-hidden bg-cover bg-center">
                 <!-- Film Poster -->
                 <div class="w-1/3 h-80 bg-cover bg-center"
-                    style="background-image: url('{{ $showing->FilmImage }}');">
+                    style="background-image: url('{{ $showing->film->FilmImage }}');">
                 </div>
 
                 <!-- Film Details -->
                 <div class="flex flex-col justify-between w-2/3 bg-black px-7 pt-4 pb-6 text-white">
                     <div>
-                        <span class="uppercase text-3xl font-semibold drop-shadow-lg">{{ $showing->FilmName }}</span>
+                        <span class="uppercase text-3xl font-semibold drop-shadow-lg">{{ $showing->film->FilmName }}</span>
                         <div class="text-xs text-gray-200 mt-2">
                             <a href="#" class="">{{ $showing->GenreName }}</a>
                         </div>
                         <p class="mt-4 text-sm text-gray-300">
-                            <!-- You can adjust the description based on your data -->
-                            Your film description here.
+                            {{ $showing->film->FilmDesc }}
                         </p>
                     </div>
                     <div class="flex justify-between items-center mt-4">
@@ -44,19 +43,15 @@
 
                             @foreach($zone->seats as $seat)
                                 <label class="mr-2">
-                                    <input type="checkbox" name="selected_seats[]" value="{{ $seat->id }}">
+                                    <input type="radio" name="selected_seats[]" value="{{ $seat->id }}">
                                     Seat {{ $seat->seat_number }}
                                 </label>
                             @endforeach
-
-                            <button type="submit" class="btn btn-primary mt-2">Reserve Seats</button>
                         </form>
                     </div>
                 @endforeach
+                <button type="submit" class="btn btn-primary mt-2">Reserve Seats</button>
             </div>
         </section>
     @endforeach
-
-    
-    
 @endsection
