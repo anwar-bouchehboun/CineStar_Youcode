@@ -63,8 +63,9 @@
                                 <div class="w-3 h-3 "></div>
                             </div>
                         </div>
+
                         <div class="flex flex-col items-center">
-                            <span class="text-4xl font-bold">{!! $reservationData['id'] !!}</span>
+                            <span class="text-4xl font-bold"></span>
                             <span class="text-sm text-zinc-500">Salle Code X</span>
                         </div>
                     </div>

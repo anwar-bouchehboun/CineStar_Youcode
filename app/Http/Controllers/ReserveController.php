@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\TestMail;
 use App\Models\Reserve;
 use App\Models\Seat;
+use App\Models\TodayShowing;
 use Auth;
 use Illuminate\Http\Request;
 use Mail;
@@ -22,29 +23,40 @@ class ReserveController extends Controller
     
         $user = auth()->user();
         $reservationTime = now();
-        $reservationData = []; // Initialize an array to store reservation details
+        $reservationData = []; 
+
+        
+        $filmDetails = TodayShowing::with(['film', 'film.genre', 'salle', 'salle.zones.seats'])
+            ->where('id', $request->today_showing_id)
+            ->firstOrFail();
+    
+        $salleDetails = $filmDetails->salle;
+        $zoneDetails = $salleDetails->zones->where('id', $request->zone_id)->first();
     
         foreach ($request->selected_seats as $seatId) {
             Seat::where('id', $seatId)->update(['seat_status' => 'reserved']);
     
-            $reservation = Reserve::create([
+            // Store reservation details in the $reservationData array
+            $reservationData[] = [
+                'filmName' => $filmDetails->film->FilmName,
+                'salleName' => $salleDetails->saleName,
+                'zoneName' => $zoneDetails->zone_name,
+                'seatNumber' => Seat::find($seatId)->seat_number,
+                'showingTime' => $filmDetails->showing_time,
+            ];
+
+            //dd($reservationData);
+    
+            Reserve::create([
                 'user_id' => $user->id,
                 'today_showing_id' => $request->today_showing_id,
                 'salle_id' => $request->salle_id,
+                'zone_id' => $request->zone_id,
                 'seat_id' => $seatId,
                 'reservation_time' => $reservationTime,
             ]);
-    
-            // Store reservation details in the $reservationData array
-       
-            //dd($reservation);
-            
-            //$reservationData[] = $reservation;
-            dd($reservationData);
-
         }
     
-        // Send email with reservation confirmation
         $subject = 'Ticket';
         $body = 'CINESTAR';
     
@@ -54,5 +66,8 @@ class ReserveController extends Controller
         // Redirect or respond as needed
         return redirect()->back()->with('success', 'Seats reserved successfully');
     }
+    
+    
+    
     
 }

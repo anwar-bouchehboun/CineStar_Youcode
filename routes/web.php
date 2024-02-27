@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookingFilmController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\TodayShowingController;
+use App\Mail\TestMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +37,13 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 Route::middleware(['auth','role:member'])->group(function () {
     Route::get('/films', [FilmController::class, 'index'])->name('films.index');
-   // Route::get('/email', [ReserveController::class,'store']);
     Route::post('/reserve-seats', [ReserveController::class, 'reserveSeats'])->name('reserve.seats');
 
     
 });
+
+//Route::get('/email', [TestMail::class, 'index'])->name('email');
+
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/dashboard', function () {

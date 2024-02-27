@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TestMail extends Mailable
 {
+
     use Queueable, SerializesModels;
 
     public $subject;
@@ -24,24 +25,23 @@ class TestMail extends Mailable
      *
      * @return void
      */
-    public function __construct($subject, $body,$reservationData)
+    public function __construct($subject, $body, $reservationData)
     {
         $this->subject = $subject;
         $this->body = $body;
-        $this->user=Auth::user();
-        $this->reservationData=$reservationData;
-
+        $this->user = Auth::user();
+        $this->reservationData = $reservationData; // Set the variable
     }
 
     public function build()
     {
         return $this->subject($this->subject)
-                    ->view('email')
-                    ->with([
-                        'body' => $this->body,
-                        'user' => $this->user,
-                        'reservationData' => $this->reservationData, 
-                    ]);
+            ->view('email')
+            ->with([
+                'body' => $this->body,
+                'user' => $this->user,
+                'reservationData' => $this->reservationData,
+            ]);
     }
     
 
