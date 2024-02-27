@@ -11,6 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         //films
+        Schema::enableForeignKeyConstraints();
         Schema::create('films', function (Blueprint $table) {
             $table->id();
             $table->string('FilmName');

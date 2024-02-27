@@ -16,6 +16,6 @@ class EmailControllers extends Controller
         $subject = 'Ticket';
         $body = 'CINESTAR ';
 
-        Mail::to($user->email)->send(new TestMail($subject, $body));
+        //Mail::to($user->email)->send(new TestMail($subject, $body));
     }
 }

@@ -16,6 +16,26 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ActorsTableSeeder::class,
         ]);
+
+        $this->call([
+            GenresTableSeeder::class,
+        ]);
+        $this->call([
+            FilmsTableSeeder::class,
+        ]);
+        $this->call([
+            SalleSeeder::class,
+        ]);
+        $this->call([
+            TodayShowingsSeeder::class,
+        ]);
+        $this->call([
+            ZoneSeeder::class,
+        ]);
+        $this->call([
+            SeatsSeeder::class,
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

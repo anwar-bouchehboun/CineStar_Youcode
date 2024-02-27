@@ -30,7 +30,17 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if($hasMemberRole){
+            return redirect(RouteServiceProvider::FILM);
+            
+
+        }
+        return redirect(RouteServiceProvider::HOME);
+
+    //  dd($request->hasRole('member'));
+// dd($request);
+
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
