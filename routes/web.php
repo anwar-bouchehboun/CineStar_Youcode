@@ -36,7 +36,9 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 Route::middleware(['auth','role:member'])->group(function () {
     Route::get('/films', [FilmController::class, 'index'])->name('films.index');
-    Route::get('/email', [EmailControllers::class,'index']);
+   // Route::get('/email', [ReserveController::class,'store']);
+    Route::post('/reserve-seats', [ReserveController::class, 'reserveSeats'])->name('reserve.seats');
+
     
 });
 
@@ -69,7 +71,6 @@ Route::get('/films/todays-showing/{film_id}', [TodayShowingController::class, 'i
 
 //reserve 
 
-Route::post('/reserve-seats', [ReserveController::class, 'reserveSeats'])->name('reserve.seats');
 
 Route::fallback(function() {
     return view('404'); // la vue 404.blade.php

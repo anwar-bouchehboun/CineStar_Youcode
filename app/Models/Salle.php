@@ -14,4 +14,8 @@ class Salle extends Model
     {
         return $this->hasMany(Zone::class);
     }
+    public function Reserve()
+    {
+        return $this->hasMany(Reserve::class, 'salle_id');
+    }
 }

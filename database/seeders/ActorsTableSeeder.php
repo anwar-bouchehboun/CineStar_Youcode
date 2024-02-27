@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 namespace Database\Seeders;
@@ -50,4 +48,3 @@ class ActorsTableSeeder extends Seeder
         ]);
     }
 }
->>>>>>> mustapha

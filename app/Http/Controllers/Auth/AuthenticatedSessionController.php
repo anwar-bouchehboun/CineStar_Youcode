@@ -29,6 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $hasMemberRole = Auth::user()->hasRole('member');
 
         if($hasMemberRole){
             return redirect(RouteServiceProvider::FILM);

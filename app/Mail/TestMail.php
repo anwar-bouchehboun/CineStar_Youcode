@@ -17,17 +17,20 @@ class TestMail extends Mailable
     public $subject;
     public $body;
     public $user;
+    public $reservationData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject, $body)
+    public function __construct($subject, $body,$reservationData)
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->user=Auth::user();
+        $this->reservationData=$reservationData;
+
     }
 
     public function build()
@@ -36,8 +39,10 @@ class TestMail extends Mailable
                     ->view('email')
                     ->with([
                         'body' => $this->body,
-                        'user' => $this->user
+                        'user' => $this->user,
+                        'reservationData' => $this->reservationData, 
                     ]);
     }
+    
 
 }

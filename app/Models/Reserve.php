@@ -16,4 +16,24 @@ class Reserve extends Model
         'seat_id',
         'reservation_time',
     ];
+
+    // Define the relationship with Salle
+    public function salle()
+    {
+        return $this->belongsTo(Salle::class);
+    }
+
+
+    // Define the relationship with Seat
+    public function seat()
+    {
+        return $this->belongsTo(Seat::class);
+    }
+
+    public function TodayShowing()
+    {
+        return $this->belongsTo(TodayShowing::class);
+    }
+
 }
+
