@@ -24,6 +24,11 @@ class ZoneSeeder extends Seeder
                 'zone_name' => 'Zone B',
                 'zone_price' => '5O.00 DH',
             ],
+            [
+                'salle_id' => 2, 
+                'zone_name' => 'Zone C',
+                'zone_price' => '6O.00 DH',
+            ],
         ]);
     }
 }

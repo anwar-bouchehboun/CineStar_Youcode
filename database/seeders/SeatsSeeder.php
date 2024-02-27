@@ -18,7 +18,7 @@ class SeatsSeeder extends Seeder
                 'salle_id' => 1, 
                 'seat_number' => 1,
                 'seat_status' => 'available',
-                'zone_id' => 1, 
+                'zone_id' => 2, 
             ],
             [
                 'salle_id' => 1,
@@ -33,18 +33,18 @@ class SeatsSeeder extends Seeder
                 'zone_id' => 1,
             ],
             [
-                'salle_id' => 1,
+                'salle_id' => 2,
                 'seat_number' => 4,
                 'seat_status' => 'available',
                 'zone_id' => 2,
             ],
             [
-                'salle_id' => 1,
+                'salle_id' => 2,
                 'seat_number' => 5,
                 'seat_status' => 'available',
-                'zone_id' => 2,
+                'zone_id' => 3,
             ],[
-                'salle_id' => 1,
+                'salle_id' => 2,
                 'seat_number' => 6,
                 'seat_status' => 'available',
                 'zone_id' => 2,
