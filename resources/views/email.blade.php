@@ -14,9 +14,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="p-6">
-    <main class="flex flex-col w-screen h-screen" >
+    <main class="flex flex-col w-screen h-screen"  >
         <section class="flex items-center justify-center flex-grow w-full p-4 bg-red-800" >
-            <div class="flex w-full h-64 max-w-3xl text-zinc-50" style="background-color: rgb(27, 156, 216);">
+            <div class="flex w-full h-64 max-w-3xl text-zinc-50" style="background-image: url('https://previews.123rf.com/images/deniskolt/deniskolt1710/deniskolt171000015/87850874-festival-de-cin%C3%A9ma-ou-mod%C3%A8le-d-affiche-de-temps-de-cin%C3%A9ma-illustration-vectorielle.jpg'); background-repeat: no-repeat;">
                 {{-- code bar --}}
                 {{-- <div class="flex items-center justify-center mr-4">
                     <img src="path/to/your/qr_code.png" alt="QR Code" class="">
@@ -38,8 +38,8 @@
                         <div class="flex flex-col items-center flex-grow px-10">
                             <span class="text-xs font-bold text-white">YOUCODE</span>
                             <div class="flex items-center w-full mt-2">
-                                <div class="w-3 h-3 border-2 rounded-full border-zinc-900"></div>
-                                <div class="flex-grow h-px border-t-2 border-dotted border-zinc-400"></div>
+                                <div class="w-3 h-3 "></div>
+                                <div class="flex-grow h-px "></div>
                                 <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 67 67" xmlns="http://www.w3.org/2000/svg" width="30px" style="fill: black;">
                                     <path d="m2.083 8.333v50c0 1.151.933 2.084 2.084 2.084h58.333c1.151 0 2.083-.933 2.083-2.084v-50c0-1.15-.932-2.083-2.083-2.083h-58.333c-1.151 0-2.084.933-2.084 2.083z"/>
                                     <path d="m16.667 52.083v4.167h-10.417v-4.167z"/>
@@ -59,8 +59,8 @@
                                     </g>
                                 </svg>
 
-                                <div class="flex-grow h-px border-t-2 border-dotted border-zinc-400"></div>
-                                <div class="w-3 h-3 border-2 rounded-full border-zinc-900"></div>
+                                <div class="flex-grow h-px "></div>
+                                <div class="w-3 h-3 "></div>
                             </div>
                         </div>
                         <div class="flex flex-col items-center">
