@@ -44,7 +44,7 @@ class ReserveController extends Controller
                 'showingTime' => $filmDetails->showing_time,
             ];
 
-          
+
 
             Reserve::create([
                 'user_id' => $user->id,
@@ -59,10 +59,9 @@ class ReserveController extends Controller
         $subject = 'Ticket';
         $body = 'CINESTAR';
 
-        // Pass $reservationData to the TestMail class
         Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData));
 
-        // Redirect or respond as needed
+
         return redirect()->back()->with('success', 'Seats reserved successfully');
     }
 
