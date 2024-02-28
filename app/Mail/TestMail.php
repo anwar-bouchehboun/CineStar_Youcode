@@ -10,6 +10,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 class TestMail extends Mailable
 {
 
@@ -19,22 +21,27 @@ class TestMail extends Mailable
     public $body;
     public $user;
     public $reservationData;
+    public $QR;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject, $body, $reservationData)
+    public function __construct($subject, $body, $reservationData, $QR)
     {
         $this->subject = $subject;
         $this->body = $body;
         $this->user = Auth::user();
-        $this->reservationData = $reservationData; 
+        $this->reservationData = $reservationData;
+        $this->QR = $QR;
+
+
     }
 
     public function build()
     {
+
 
         return $this->subject($this->subject)
             ->view('email')
@@ -42,6 +49,7 @@ class TestMail extends Mailable
                 'body' => $this->body,
                 'user' => $this->user,
                 'reservationData' => $this->reservationData,
+                'Qr' => $this->QR
             ]);
     }
 

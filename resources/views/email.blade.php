@@ -21,8 +21,11 @@
                 {{-- <div class="flex items-center justify-center mr-4">
                     <img src="path/to/your/qr_code.png" alt="QR Code" class="">
                 </div> --}}
-                <div class="flex px-3 mt-2 rounded-full bg-lime-400" style="rotate: 90deg;heigth:12rem">
-                    <span class="text-sm text-white ">Ticket Number :   13234567</span>
+                <div class="px-3 mt-8 ml-12 rou9nded-full bg-lime-400" style="rotate: 90deg;height:12rem">
+                    <div class="text-sm text-center text-white">Ticket Number : 13234567</div>
+                    <div class=""> {{ $Qr }}</div>
+
+
                 </div>
                 <div class="relative flex flex-col items-center justify-between h-full border-2 border-dashed bg-zinc-900 border-zinc-50">
                     <div class="absolute w-8 h-8 rounded-full bg-zinc-200 -top-5"></div>
@@ -68,7 +71,7 @@
 
 
 
-                            <span class="text-4xl font-bold">{{ $reservation['filmName'] }}</span>
+                            <span class="text-2xl font-bold">{{ $reservation['filmName'] }}</span>
 
                             <span class="text-sm text-white">{{ $reservation['salleName'] }}</span>
                         </div>

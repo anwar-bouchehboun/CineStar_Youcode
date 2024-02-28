@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Mail;
+use App\Models\Seat;
 use App\Mail\TestMail;
 use App\Models\Reserve;
-use App\Models\Seat;
 use App\Models\TodayShowing;
-use Auth;
+
 use Illuminate\Http\Request;
-use Mail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class ReserveController extends Controller
 {
@@ -59,7 +63,14 @@ class ReserveController extends Controller
         $subject = 'Ticket';
         $body = 'CINESTAR';
 
-        Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData));
+
+            $jsonData = json_encode($reservationData);
+
+            $QR = QrCode::size(200)->generate($jsonData);
+        
+
+        Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData,$QR));
+
 
 
         return redirect()->back()->with('success', 'Seats reserved successfully');
