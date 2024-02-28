@@ -19,11 +19,14 @@
             <div class="flex w-full h-64 max-w-3xl text-zinc-50" style="background-image: url('https://previews.123rf.com/images/deniskolt/deniskolt1710/deniskolt171000015/87850874-festival-de-cin%C3%A9ma-ou-mod%C3%A8le-d-affiche-de-temps-de-cin%C3%A9ma-illustration-vectorielle.jpg'); background-repeat: no-repeat;">
                 {{-- code bar --}}
                 {{-- <div class="flex items-center justify-center mr-4">
-                    <img src="path/to/your/qr_code.png" alt="QR Code" class="">
                 </div> --}}
-                <div class="flex px-3 mt-2 rounded-full bg-lime-400" style="rotate: 90deg;heigth:12rem">
-                    <span class="text-sm text-white ">Ticket Number :   13234567</span>
+
+                <div class="px-3 mt-8 ml-12 rou9nded-full bg-lime-400" style="rotate: 90deg;height:12rem">
+                    <div class="text-sm text-center text-white">Ticket Number : 13234567</div>
+                    <div class=" w-50 h-50"> {{ $Qr }}</div>
+
                 </div>
+
                 <div class="relative flex flex-col items-center justify-between h-full border-2 border-dashed bg-zinc-900 border-zinc-50">
                     <div class="absolute w-8 h-8 rounded-full bg-zinc-200 -top-5"></div>
                     <div class="absolute w-8 h-8 rounded-full bg-zinc-200 -bottom-5"></div>
