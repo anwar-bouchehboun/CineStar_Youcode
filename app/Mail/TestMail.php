@@ -30,11 +30,12 @@ class TestMail extends Mailable
         $this->subject = $subject;
         $this->body = $body;
         $this->user = Auth::user();
-        $this->reservationData = $reservationData; // Set the variable
+        $this->reservationData = $reservationData; 
     }
 
     public function build()
     {
+
         return $this->subject($this->subject)
             ->view('email')
             ->with([
@@ -43,6 +44,6 @@ class TestMail extends Mailable
                 'reservationData' => $this->reservationData,
             ]);
     }
-    
+
 
 }

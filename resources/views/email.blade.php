@@ -3,7 +3,7 @@
     $body = $body ?? '';
     $user = $user ?? null;
 @endphp
-
+{{-- @dd($reservationData) --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,10 +63,14 @@
                                 <div class="w-3 h-3 "></div>
                             </div>
                         </div>
-
+                        @foreach($reservationData as $reservation)
                         <div class="flex flex-col items-center">
-                            <span class="text-4xl font-bold"></span>
-                            <span class="text-sm text-zinc-500">Salle Code X</span>
+
+
+
+                            <span class="text-4xl font-bold">{{ $reservation['filmName'] }}</span>
+
+                            <span class="text-sm text-white">{{ $reservation['salleName'] }}</span>
                         </div>
                     </div>
                     <div class="flex justify-between w-full mt-auto">
@@ -76,17 +80,18 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-xs font-bold">Departure</span>
-                            <span class="font-mono text-white ">21:00</span>
+                            <span class="font-mono text-white ">{{ $reservation['showingTime'] }}</span>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-xs font-bold">SALLESTALONE</span>
-                            <span class="font-mono text-white ">Code X @2024</span>
+                            <span class="text-xs font-bold">Zone</span>
+                            <span class="font-mono text-white ">{{ $reservation['zoneName'] }}</span>
                         </div>
                         <div class="flex flex-col">
                             <span class="text-xs font-bold">Seat</span>
-                            <span class="font-mono text-white ">A11</span>
+                            <span class="font-mono text-white ">A{{ $reservation['seatNumber'] }}</span>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </section>

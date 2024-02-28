@@ -20,22 +20,22 @@ class ReserveController extends Controller
             'zone_id' => 'required',
             'selected_seats' => 'required|array',
         ]);
-    
+
         $user = auth()->user();
         $reservationTime = now();
-        $reservationData = []; 
+        $reservationData = [];
 
-        
+
         $filmDetails = TodayShowing::with(['film', 'film.genre', 'salle', 'salle.zones.seats'])
             ->where('id', $request->today_showing_id)
             ->firstOrFail();
-    
+
         $salleDetails = $filmDetails->salle;
         $zoneDetails = $salleDetails->zones->where('id', $request->zone_id)->first();
-    
+
         foreach ($request->selected_seats as $seatId) {
             Seat::where('id', $seatId)->update(['seat_status' => 'reserved']);
-    
+
             $reservationData[] = [
                 'filmName' => $filmDetails->film->FilmName,
                 'salleName' => $salleDetails->saleName,
@@ -44,8 +44,8 @@ class ReserveController extends Controller
                 'showingTime' => $filmDetails->showing_time,
             ];
 
-            //dd($reservationData);
-    
+          
+
             Reserve::create([
                 'user_id' => $user->id,
                 'today_showing_id' => $request->today_showing_id,
@@ -55,18 +55,18 @@ class ReserveController extends Controller
                 'reservation_time' => $reservationTime,
             ]);
         }
-    
+
         $subject = 'Ticket';
         $body = 'CINESTAR';
-    
+
         // Pass $reservationData to the TestMail class
         Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData));
-    
+
         // Redirect or respond as needed
         return redirect()->back()->with('success', 'Seats reserved successfully');
     }
-    
-    
-    
-    
+
+
+
+
 }
