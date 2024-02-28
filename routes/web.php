@@ -4,7 +4,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FilmController;
+
 use App\Http\Controllers\EmailControllers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
@@ -28,19 +28,18 @@ Route::get('/', function () {
 // Route::get('/email', [EmailControllers::class,'index']);
 
 
-Route::middleware(['auth','role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth','role:member'])->group(function () {
+Route::middleware(['auth', 'role:member'])->group(function () {
     Route::get('/films', [FilmController::class, 'index'])->name('films.index');
-    Route::get('/email', [EmailControllers::class,'index']);
-    
+    Route::get('/email', [EmailControllers::class, 'index']);
 });
 
-Route::middleware(['auth','role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -65,8 +64,8 @@ Route::get('/auth/google/callback', [LoginController::class, 'callback']);
 // Route::get('/login/google', 'LoginController@redirectToGoogle')->name('login.google');
 // Route::get('/login/google/callback', 'LoginController@handleGoogleCallback');
 
-Route::fallback(function() {
+Route::fallback(function () {
     return view('404'); // la vue 404.blade.php
- });
+});
 
 require __DIR__ . '/auth.php';

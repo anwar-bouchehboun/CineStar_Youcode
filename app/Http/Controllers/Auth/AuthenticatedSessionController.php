@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -29,17 +30,19 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        // $hasMemberRole = Auth::user()->hasRole('member');
+     
         $hasMemberRole = Auth::user()->hasRole('member');
 
-        if($hasMemberRole){
+        if ($hasMemberRole) {
             return redirect(RouteServiceProvider::FILM);
-
         }
         return redirect(RouteServiceProvider::HOME);
-
-    //  dd($request->hasRole('member'));
-// dd($request);
-
+        
+     
+        // dd($request);
+        // dd($request->hasRole('member'));
         // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
