@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-=======
+
 @extends('layouts.sidebar')
 
 @section('content')
 
-        <main class=" flex-1 py-10  px-5 sm:px-10 ">
+        <main class="flex-1 px-5 py-10  sm:px-10">
             <!-- Search -->
             <section>
                 <div class="flex justify-between">
                     <div>
-                        <div class="relative items-center content-center flex ml-2">
-                            <span class="text-gray-400 absolute left-4 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                        <div class="relative flex items-center content-center ml-2">
+                            <span class="absolute text-gray-400 cursor-pointer left-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
                             </span>
                             <input type="text"
-                                class="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
+                                class="w-full py-3 pl-10 pr-5 text-xs text-gray-600 bg-transparent rounded-full outline-none ring-1 ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 dark:text-white focus:ring-1"
                                 placeholder="Search ...">
                         </div>
                     </div>
@@ -28,34 +27,33 @@
                         <div class="flex gap-4">
                             @if (empty(Auth::user()->avatar))
                                 <img src="{{ asset('/storage/images/default-avatar.jpg') }}" alt="Default Avatar"
-                                    class="rounded-full h-10 w-10">
+                                    class="w-10 h-10 rounded-full">
                             @else
-                                <img src="{{ Auth::user()->avatar }}" alt="User Image" class="rounded-full h-10 w-10">
+                                <img src="{{ Auth::user()->avatar }}" alt="User Image" class="w-10 h-10 rounded-full">
                             @endif
-                            <span class="mt-3 text-black font-bold">{{ Auth::user()->name }}</span>
+                            <span class="mt-3 font-bold text-black">{{ Auth::user()->name }}</span>
                         </div>
                     @endauth
 
                 </div>
                 <!--Film publication -->
-                <div class="flex flex-col justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl overflow-hidden bg-cover bg-center px-4 py-6 text-white"
+                <div class="flex flex-col justify-between px-4 py-6 mt-4 overflow-hidden text-white bg-center bg-cover bg-black/10 bg-blend-multiply rounded-3xl"
                 style="background-image: url('images/inception.jpg');">
-                <div class="bg-gradient-to-r from-black/30 to-transparent -mx-4 -mb-4 px-4 pb-4 pt-2">
-                    <span class="uppercase text-3xl font-semibold text-white drop-shadow-lg">Experience the Magic: Premiering
+                <div class="px-4 pt-2 pb-4 -mx-4 -mb-4 bg-gradient-to-r from-black/30 to-transparent">
+                    <span class="text-3xl font-semibold text-white uppercase drop-shadow-lg">Experience the Magic: Premiering
                         at <span class="text-red-900">CimaStar</span> on <span class="text-yellow-300">March 22nd!</span></span>
-                    <div class="mt-4 flex space-x-3 items-center">
+                    <div class="flex items-center mt-4 space-x-3">
                         <!-- Additional content if needed -->
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 m-12">
+                <div class="grid grid-cols-1 gap-8 m-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     @foreach ($todayShowings as $showing)
-                    <a href="{{ route('films.todays-showing', ['film_id' => $showing->film->id]) }}" class="cursor-pointer
-                            flex flex-col rounded-xl overflow-hidden aspect-square border dark:border-zinc-600">
+                    <a href="{{ route('films.todays-showing', ['film_id' => $showing->film->id]) }}" class="flex flex-col overflow-hidden border cursor-pointer rounded-xl aspect-square dark:border-zinc-600">
                             <div style="background-image: url('{{ $showing->film->FilmImage }}');"
-                                class="h-4/5 bg-cover bg-center rounded-t-3xl"></div>
-                            <div class="w-full h-1/5 bg-black dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
-                                <span class="capitalize font-medium truncate">{{ $showing->film->FilmName }}</span>
-                                <div class="flex space-x-2 items-center text-xs">
+                                class="bg-center bg-cover h-4/5 rounded-t-3xl"></div>
+                            <div class="flex items-center justify-between w-full px-3 bg-black border-t-2 h-1/5 dark:bg-zinc-800 dark:text-white border-t-red-600">
+                                <span class="font-medium capitalize truncate">{{ $showing->film->FilmName }}</span>
+                                <div class="flex items-center space-x-2 text-xs">
                                     <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64" height="32" viewBox="0 0 64 32"
                                         version="1.1">
                                         <g fill="#F5C518">
@@ -80,8 +78,8 @@
                         </a>
                     @endforeach
                 </div>
-                
-            
+
+
 
             </section>
 
@@ -114,17 +112,17 @@
             <!--Films Section -->
             <section class="mt-9">
                 <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-700 text-base dark:text-white">Similar Movies</span>
+                    <span class="text-base font-semibold text-gray-700 dark:text-white">Similar Movies</span>
                 </div>
 
-                <div class="mt-4 grid grid-cols-2 gap-y-5 sm:grid-cols-3 gap-x-5 ">
+                <div class="grid grid-cols-2 mt-4 gap-y-5 sm:grid-cols-3 gap-x-5 ">
                     @foreach ($TopFilms as $film)
                     <a href="#"
-                        class="flex flex-col rounded-xl overflow-hidden aspect-square border dark:border-zinc-600">
-                        <img src="{{ $film->FilmImage }}" class="h-4/5 object-cover w-full" alt="{{ $film->FilmName }}">
-                        <div class="w-full h-1/5 bg-white dark:bg-zinc-800 dark:text-white px-3 flex items-center justify-between border-t-2 border-t-red-600">
-                            <span class="capitalize font-medium truncate">{{ $film->FilmName }}</span>
-                            <div class="flex space-x-2 items-center text-xs">
+                        class="flex flex-col overflow-hidden border rounded-xl aspect-square dark:border-zinc-600">
+                        <img src="{{ $film->FilmImage }}" class="object-cover w-full h-4/5" alt="{{ $film->FilmName }}">
+                        <div class="flex items-center justify-between w-full px-3 bg-white border-t-2 h-1/5 dark:bg-zinc-800 dark:text-white border-t-red-600">
+                            <span class="font-medium capitalize truncate">{{ $film->FilmName }}</span>
+                            <div class="flex items-center space-x-2 text-xs">
                                 <svg class="w-8 h-5" xmlns="http://www.w3.org/2000/svg" width="64" height="32"
                                     viewBox="0 0 64 32" version="1.1">
                                     <g fill="#F5C518">
@@ -158,4 +156,4 @@
         </main>
 
 @endsection
->>>>>>> mustapha
+
