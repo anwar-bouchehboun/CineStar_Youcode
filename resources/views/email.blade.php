@@ -3,7 +3,7 @@
     $body = $body ?? '';
     $user = $user ?? null;
 @endphp
-{{-- @dd($reservationData) --}}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +14,14 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="p-6">
+    @foreach($reservationData as $reservation)
     <main class="flex flex-col w-screen h-screen"  >
         <section class="flex items-center justify-center flex-grow w-full p-4 bg-red-800" >
             <div class="flex w-full h-64 max-w-3xl text-zinc-50" style="background-image: url('https://previews.123rf.com/images/deniskolt/deniskolt1710/deniskolt171000015/87850874-festival-de-cin%C3%A9ma-ou-mod%C3%A8le-d-affiche-de-temps-de-cin%C3%A9ma-illustration-vectorielle.jpg'); background-repeat: no-repeat;">
-                {{-- code bar --}}
-                {{-- <div class="flex items-center justify-center mr-4">
-                    <img src="path/to/your/qr_code.png" alt="QR Code" class="">
-                </div> --}}
+
                 <div class="px-3 mt-8 ml-12 rou9nded-full bg-lime-400" style="rotate: 90deg;height:12rem">
                     <div class="text-sm text-center text-white">Ticket Number : 13234567</div>
                     <div class=""> {{ $Qr }}</div>
-
 
                 </div>
                 <div class="relative flex flex-col items-center justify-between h-full border-2 border-dashed bg-zinc-900 border-zinc-50">
@@ -66,7 +63,7 @@
                                 <div class="w-3 h-3 "></div>
                             </div>
                         </div>
-                        @foreach($reservationData as $reservation)
+
                         <div class="flex flex-col items-center">
 
 
@@ -94,10 +91,11 @@
                             <span class="font-mono text-white ">A{{ $reservation['seatNumber'] }}</span>
                         </div>
                     </div>
-                    @endforeach
+
                 </div>
             </div>
         </section>
     </main>
+    @endforeach
 </body>
 </html>
