@@ -36,7 +36,6 @@ class ReserveController extends Controller
         foreach ($request->selected_seats as $seatId) {
             Seat::where('id', $seatId)->update(['seat_status' => 'reserved']);
     
-            // Store reservation details in the $reservationData array
             $reservationData[] = [
                 'filmName' => $filmDetails->film->FilmName,
                 'salleName' => $salleDetails->saleName,
