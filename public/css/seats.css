@@ -232,3 +232,12 @@ p.text span {
         font-size: 18px
     }
 }
+
+
+
+    /*  seats  */
+
+
+    input[type="checkbox"]:checked + label {
+        background-color: blue; /* Change the color when the checkbox is checked */
+    }
