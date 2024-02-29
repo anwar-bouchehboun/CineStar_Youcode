@@ -67,13 +67,15 @@ class ReserveController extends Controller
             $jsonData = json_encode($reservationData);
 
             $QR = QrCode::size(200)->generate($jsonData);
-        
+
 
         Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData,$QR));
 
 
 
-        return redirect()->back()->with('success', 'Seats reserved successfully');
+        session()->flash('success', 'Seats reserved successfully');
+
+        return redirect()->back();
     }
 
 
