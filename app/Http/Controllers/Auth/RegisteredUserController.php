@@ -35,14 +35,19 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role'=>'required',
         ]);
-            // dd($request->all());
+        // ;
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $path = $avatar->store('public');
+
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            // 'avatar' => $path
+            'avatar' => $path
         ]);
 
         $user->assignRole('member');
@@ -50,9 +55,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-        //  dd( $user->role);
         if ($user->hasRole('member')) {
             return redirect(RouteServiceProvider::FILM);
+
         }
         return redirect(RouteServiceProvider::HOME);
     }
