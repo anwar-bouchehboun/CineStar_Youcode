@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookingFilmController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TodayShowingController;
 use App\Mail\TestMail;
 
@@ -72,7 +73,8 @@ Route::get('/films/booking-film', [BookingFilmController::class, 'index'])->name
 // TodayShowing route
 Route::get('/films/todays-showing/{film_id}', [TodayShowingController::class, 'index'])->name('films.todays-showing');
 
-//reserve 
+//searsh 
+Route::get('/search', [SearchController::class, 'searchFilms'])->name('searchFilms');
 
 
 Route::fallback(function() {

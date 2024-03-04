@@ -7,7 +7,7 @@
             <!-- Search -->
             <section>
                 <div class="flex justify-between">
-                    <div>
+                    <form action="{{ route('searchFilms') }}" method="GET" class="flex items-center content-center ml-2">
                         <div class="relative flex items-center content-center ml-2">
                             <span class="absolute text-gray-400 cursor-pointer left-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
@@ -18,9 +18,14 @@
                             </span>
                             <input type="text"
                                 class="w-full py-3 pl-10 pr-5 text-xs text-gray-600 bg-transparent rounded-full outline-none ring-1 ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 dark:text-white focus:ring-1"
-                                placeholder="Search ...">
+                                placeholder="Search by Film Name..." name="film_name">
                         </div>
-                    </div>
+
+                        <button type="submit" class="ml-2 bg-blue-500 text-white py-2 px-4 rounded-full">
+                            Search
+                        </button>
+                    </form>
+
 
                     @auth
                         <!-- Display User Info -->

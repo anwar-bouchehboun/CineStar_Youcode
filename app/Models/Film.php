@@ -14,4 +14,9 @@ class Film extends Model
     {
         return $this->belongsTo(Genre::class, 'genre_id');
     }
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class);
+    }
 }

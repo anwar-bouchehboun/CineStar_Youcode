@@ -9,4 +9,10 @@ class Actor extends Model
 {
     use HasFactory;
     protected $table = 'actors';
+
+
+    public function films()
+    {
+        return $this->belongsToMany(Film::class);
+    }
 }

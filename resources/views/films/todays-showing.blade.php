@@ -41,6 +41,7 @@
             </div>
 
             <div class="p-4 m-4 bg-white border-2 border-gray-300 rounded-lg shadow-md">
+                
             @foreach($filmDetails->salle->zones as $zone)
                 <div class="max-w-xs p-4 m-4 border-2 border-gray-300 rounded">
                     <h2 class="mb-2 text-lg font-bold">{{ $zone->zone_name }} - {{ $zone->zone_price }}$</h2>

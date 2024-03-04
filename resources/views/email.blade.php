@@ -76,8 +76,11 @@
                     <div class="flex justify-between w-full mt-auto">
                         <div class="flex flex-col">
                             <span class="text-xs font-bold">Date</span>
-                            <span class="font-mono text-white ">09/06/2023</span>
+                            <span class="font-mono text-white">
+                                {{ (new DateTime($reservation['resrveTime']))->format('Y-m-d') }}
+                            </span>
                         </div>
+                        
                         <div class="flex flex-col">
                             <span class="text-xs font-bold">Departure</span>
                             <span class="font-mono text-white ">{{ $reservation['showingTime'] }}</span>

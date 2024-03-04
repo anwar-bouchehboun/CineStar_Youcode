@@ -46,7 +46,11 @@ class ReserveController extends Controller
                 'zoneName' => $zoneDetails->zone_name,
                 'seatNumber' => Seat::find($seatId)->seat_number,
                 'showingTime' => $filmDetails->showing_time,
+                'resrveTime' =>  $reservationTime,
             ];
+
+
+            //dd($reservationData);
 
 
 
@@ -64,10 +68,9 @@ class ReserveController extends Controller
         $body = 'CINESTAR';
 
 
-            $jsonData = json_encode($reservationData);
-
-            $QR = QrCode::size(200)->generate($jsonData);
-
+        $jsonData = json_encode($reservationData);
+        $QR = QrCode::size(200)->generate($jsonData);
+        
 
         Mail::to($user->email)->send(new TestMail($subject, $body, $reservationData,$QR));
 

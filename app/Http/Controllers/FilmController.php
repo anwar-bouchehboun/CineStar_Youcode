@@ -25,6 +25,15 @@ class FilmController extends Controller
         return view('films.index', compact('actors', 'TopFilms','todayShowings'));
     }
 
+
+    
+    
+    
+    
+
+
+    
+
     /**
      * Show the form for creating a new resource.
      */
