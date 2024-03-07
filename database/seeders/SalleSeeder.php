@@ -15,11 +15,11 @@ class SalleSeeder extends Seeder
     {
         DB::table('salles')->insert([
             [
-                'saleName' => 'Salle A',
+                'saleName' => 'Grand Theatre',
                 'capacite' => 15,
             ],
             [
-                'saleName' => 'Salle B',
+                'saleName' => 'Premiere Hall',
                 'capacite' => 15,
             ],
 

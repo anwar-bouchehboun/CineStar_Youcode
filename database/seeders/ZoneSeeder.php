@@ -16,17 +16,17 @@ class ZoneSeeder extends Seeder
         DB::table('zones')->insert([
             [
                 'salle_id' => 1, 
-                'zone_name' => 'Zone A',
+                'zone_name' => 'Standard',
                 'zone_price' => '80.00 DH',
             ],
             [
                 'salle_id' => 2, 
-                'zone_name' => 'Zone B',
+                'zone_name' => 'Standard',
                 'zone_price' => '5O.00 DH',
             ],
             [
                 'salle_id' => 2, 
-                'zone_name' => 'Zone C',
+                'zone_name' => 'VAP',
                 'zone_price' => '6O.00 DH',
             ],
         ]);
